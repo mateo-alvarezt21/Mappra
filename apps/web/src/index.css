@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+}
+
+@layer base {
+  :root {
+    --navy: #0B2040;
+    --navy-light: #122D53;
+    --teal: #00C2CB;
+    --teal-soft: #E0F7F8;
+    --bg: rgba(11, 32, 64, 0.05);
+    --card-bg: rgba(255, 255, 255, 0.80);
+    --card-border: rgba(255, 255, 255, 0.92);
+    --card-shadow: 0 8px 48px rgba(11, 32, 64, 0.07), 0 1px 2px rgba(11, 32, 64, 0.04);
+    --layout-bg: linear-gradient(145deg, #e8f3ff 0%, #ddeeff 40%, #e4f0fb 100%);
+    --sidebar-bg: #0B2040;
+    --card: #ffffff;
+    --text: #0B2040;
+    --text-muted: #4D6480;
+    --text-subtle: #8FA3B8;
+    --border: rgba(11, 32, 64, 0.1);
+    --input-bg: #ffffff;
+    --select-bg: #ffffff;
+    --green: #10B981;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --purple: #8B5CF6;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --navy: #dce8f5;
+    --navy-light: #b8cfe8;
+    --teal: #00C2CB;
+    --teal-soft: rgba(0, 194, 203, 0.12);
+    --bg: rgba(255, 255, 255, 0.05);
+    --card-bg: #111e35;
+    --card-border: rgba(255, 255, 255, 0.07);
+    --card-shadow: 0 8px 48px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --layout-bg: linear-gradient(145deg, #070d1a 0%, #0a1225 50%, #08101e 100%);
+    --sidebar-bg: #050c18;
+    --card: #111e35;
+    --text: #dce8f5;
+    --text-muted: #7a95b0;
+    --text-subtle: #445870;
+    --border: rgba(255, 255, 255, 0.07);
+    --input-bg: #0d1829;
+    --select-bg: #0d1829;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --purple: #a78bfa;
+  }
+
+  body {
+    @apply text-[var(--text)] font-sans antialiased;
+    background: var(--layout-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: 24px;
+  }
+
+  /* Light mode keeps blur; dark mode uses solid bg */
+  :root .card {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .btn-primary {
+    @apply bg-[var(--teal)] text-[var(--navy)] font-semibold px-4 py-2 rounded-xl transition-all hover:brightness-105 active:scale-95 flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-[var(--border)] text-[var(--text-muted)] font-semibold px-4 py-2 rounded-xl transition-all hover:border-[var(--teal)] hover:text-[var(--teal)] flex items-center gap-2;
+  }
+
+  /* Inputs & selects pick up the theme */
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    background-color: var(--input-bg) !important;
+    color: var(--text) !important;
+    border-color: var(--border);
+  }
+
+  /* Override Tailwind bg utilities on form elements */
+  [data-theme="dark"] input.bg-\[var\(--bg\)\],
+  [data-theme="dark"] select.bg-\[var\(--bg\)\] {
+    background-color: var(--input-bg) !important;
+  }
+
+  /* Dark mode: reset light-only Tailwind utility backgrounds */
+  [data-theme="dark"] .bg-white {
+    background-color: var(--card-bg) !important;
+  }
+
+  [data-theme="dark"] .bg-white\/\[^\]* {
+    background-color: var(--card-bg) !important;
+  }
+
+  /* Pill/badge bg overrides in dark */
+  [data-theme="dark"] .bg-emerald-50 { background-color: rgba(52, 211, 153, 0.12) !important; }
+  [data-theme="dark"] .bg-blue-50    { background-color: rgba(59, 130, 246, 0.12) !important; }
+  [data-theme="dark"] .bg-amber-50   { background-color: rgba(251, 191, 36, 0.12) !important; }
+  [data-theme="dark"] .bg-rose-50    { background-color: rgba(248, 113, 113, 0.12) !important; }
+  [data-theme="dark"] .bg-purple-50  { background-color: rgba(167, 139, 250, 0.12) !important; }
+  [data-theme="dark"] .bg-teal-50    { background-color: rgba(0, 194, 203, 0.12) !important; }
+
+  /* Appointment color bands in dark */
+  [data-theme="dark"] .bg-teal-50.border-teal-500     { background-color: rgba(0, 194, 203, 0.12) !important; }
+  [data-theme="dark"] .bg-purple-50.border-purple-500 { background-color: rgba(167, 139, 250, 0.12) !important; }
+  [data-theme="dark"] .bg-blue-50.border-blue-500     { background-color: rgba(59, 130, 246, 0.12) !important; }
+  [data-theme="dark"] .bg-amber-50.border-amber-500   { background-color: rgba(251, 191, 36, 0.12) !important; }
+  [data-theme="dark"] .bg-emerald-50.border-emerald-500 { background-color: rgba(52, 211, 153, 0.12) !important; }
+  [data-theme="dark"] .bg-rose-50.border-rose-500     { background-color: rgba(248, 113, 113, 0.12) !important; }
+
+  /* Modal overlay bg */
+  [data-theme="dark"] .bg-white.rounded-3xl {
+    background-color: #111e35 !important;
+  }
+}
+
+/* ── Thin scrollbars globally ── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: var(--border) transparent;
+}
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');

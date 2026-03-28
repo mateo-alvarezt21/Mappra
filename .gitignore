@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Turborepo
+.turbo
+
+# Monorepo artifacts
+apps/*/dist
+packages/*/dist
