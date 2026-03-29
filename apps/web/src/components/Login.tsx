@@ -123,29 +123,26 @@ export default function Login() {
           </motion.p>
         </div>
 
-        {/* Bottom: Stats */}
+        {/* Bottom: Feature list */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
-          className="relative z-10 grid grid-cols-3 gap-4"
+          className="relative z-10 space-y-3"
         >
           {[
-            { icon: Users, label: 'Pacientes', value: '10k+' },
-            { icon: Calendar, label: 'Citas / mes', value: '2.4k' },
-            { icon: ShieldCheck, label: 'Validaciones', value: '98%' },
-          ].map(({ icon: Icon, label, value }) => (
-            <div
-              key={label}
-              className="rounded-2xl p-4"
-              style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.07)',
-              }}
-            >
-              <Icon className="w-4 h-4 text-[#00C2CB] mb-2" strokeWidth={2} />
-              <p className="text-white text-lg font-extrabold leading-none mb-0.5">{value}</p>
-              <p className="text-[#5e7d9a] text-[10px] font-semibold uppercase tracking-wider">{label}</p>
+            { icon: Calendar,   label: 'Agendamiento de citas' },
+            { icon: ShieldCheck, label: 'Validación de cobertura EPS' },
+            { icon: Users,      label: 'Gestión de pacientes y médicos' },
+          ].map(({ icon: Icon, label }) => (
+            <div key={label} className="flex items-center gap-3">
+              <div
+                className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                style={{ background: 'rgba(0,194,203,0.12)', border: '1px solid rgba(0,194,203,0.2)' }}
+              >
+                <Icon className="w-3.5 h-3.5 text-[#00C2CB]" strokeWidth={2} />
+              </div>
+              <span className="text-[#7a99bb] text-sm font-medium">{label}</span>
             </div>
           ))}
         </motion.div>
