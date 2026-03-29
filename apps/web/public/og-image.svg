@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0B2040"/>
+      <stop offset="100%" stop-color="#0d2d58"/>
+    </linearGradient>
+    <!-- Grid pattern -->
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(0,194,203,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow blobs -->
+  <radialGradient id="glow1" cx="80%" cy="20%" r="40%">
+    <stop offset="0%" stop-color="rgba(0,194,203,0.15)"/>
+    <stop offset="100%" stop-color="rgba(0,194,203,0)"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+
+  <radialGradient id="glow2" cx="10%" cy="80%" r="35%">
+    <stop offset="0%" stop-color="rgba(0,80,180,0.2)"/>
+    <stop offset="100%" stop-color="rgba(0,80,180,0)"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- ECG line decoration -->
+  <polyline
+    points="0,400 120,400 160,300 210,500 255,340 295,400 480,400 560,400 640,400 720,400 800,300 845,500 890,340 930,400 1200,400"
+    fill="none"
+    stroke="#00C2CB"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.18"
+  />
+
+  <!-- Logo mark (top-left) -->
+  <rect x="80" y="70" width="56" height="56" rx="14" fill="#0B2040" stroke="rgba(0,194,203,0.3)" stroke-width="1.5"/>
+  <polyline
+    points="90,98 99,98 102,88 107,108 111,93 115,98 136,98"
+    fill="none" stroke="#00C2CB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+  />
+
+  <!-- Brand name -->
+  <text x="152" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="white" letter-spacing="-0.5">Mappra</text>
+
+  <!-- Divider -->
+  <rect x="80" y="175" width="60" height="3" rx="2" fill="#00C2CB"/>
+
+  <!-- Main headline -->
+  <text x="80" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="white" letter-spacing="-2">Gestión clínica</text>
+  <text x="80" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#00C2CB" letter-spacing="-2">inteligente</text>
+  <text x="80" y="448" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="white" letter-spacing="-2">para tu IPS</text>
+
+  <!-- Tagline -->
+  <text x="80" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="400" fill="#5e7d9a">
+    Citas · Validación EPS · Canales digitales · Analítica
+  </text>
+
+  <!-- Right side: feature pills -->
+  <rect x="760" y="180" width="360" height="52" rx="26" fill="rgba(0,194,203,0.1)" stroke="rgba(0,194,203,0.25)" stroke-width="1.5"/>
+  <text x="940" y="213" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#00C2CB">Agendamiento de citas</text>
+
+  <rect x="800" y="256" width="280" height="52" rx="26" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="940" y="289" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.7)">Validación EPS</text>
+
+  <rect x="820" y="332" width="240" height="52" rx="26" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="940" y="365" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.7)">Webhooks n8n</text>
+
+  <rect x="840" y="408" width="200" height="52" rx="26" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+  <text x="940" y="441" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="rgba(255,255,255,0.7)">Analítica</text>
+</svg>
